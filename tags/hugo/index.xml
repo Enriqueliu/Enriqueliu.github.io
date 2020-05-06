@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Enrique-Blog Space</title>
+    <link>https://Enriqueliu.github.io/tags/hugo/</link>
+    <description>Recent content in Hugo on Enrique-Blog Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright @ 2020-2020, Enrique Liu and the Hugo Authors; all rights reserved.</copyright>
+    <lastBuildDate>Tue, 05 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://Enriqueliu.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>基于Hugo搭建的个人博客</title>
+      <link>https://Enriqueliu.github.io/blog/blog2/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://Enriqueliu.github.io/blog/blog2/</guid>
+      <description>Hugo下载安装 由于github中下载的地址比较慢, 微云分享 hugo_0.69.2_Windows-64bit 下载后解压将 hugo.exe 的目录添加到环境变量 检查是否安装——》打开powershell——》输入 hugo version
+搭建博客 生成site目录 打开powershell
+hugo new site myblog此时会生成
+└─myblog├─archetypes├─content├─data├─layouts├─static└─themesconfig.toml 是配置文件，自定义博客标题、地址等
+选择主题 前往 themes.gohugo.io 挑选自己喜欢的主题，下载后放到目录 themes/ 将主题中的配置文件 config.toml 替换 myblog 目录的 config.toml。倘若想省心的话把 exampleSite 目录下的全部文件复制到 myblog 目录下
+本地测试 hugo sever
+浏览器输入这个地址进行访问
+写一篇博客 文章在 content\blog 目录下新建一个.md文档进行编写，需学习markdown的写法
+部署github 创建仓库 仓库命名按照 &amp;lt;username&amp;gt;.github.io，不然会无法访问（404警告）
+生成public目录 hugo --baseUrl=&amp;quot;https://username.github.io&amp;quot; 打开public目录，将public下的文件推送到远程仓库
+git initgit add .git commit -m &amp;quot;first commit&amp;quot;git remote add origin &amp;lt;仓库http&amp;gt; git push -u origin master远程访问 https://username.</description>
+    </item>
+    
+  </channel>
+</rss>

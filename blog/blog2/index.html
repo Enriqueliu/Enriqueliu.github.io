@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="your description">
+    <meta name="Author" content="Enrique">
+    <meta name="keywords" content="hugo blog">
+    <link rel="stylesheet" href=https://Enriqueliu.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://Enriqueliu.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Enrique-Blog Space</title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+        <a href=https://Enriqueliu.github.io><img src="https://Enriqueliu.github.io/Kaixa1.png" alt="kaixa"></a>
+        
+    
+
+    <a id="branding" href=https://Enriqueliu.github.io>
+        
+            Enrique-Blog Space
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Enriqueliu/Enriqueliu.github.io"
+                
+                    target="_blanck"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+            		
+            <a href="/index.xml"
+                
+            >
+                <i class="fas fa-rss fa-ms"></i>
+                <span>RSS</span>
+            </a>
+        
+            		
+            <a href="/contact"
+                
+            >
+                <i class="far fa-envelope"></i>
+                <span>contact</span>
+            </a>
+        
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">基于Hugo搭建的个人博客</h1>
+    
+      
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#hugo下载安装">Hugo下载安装</a></li>
+    <li><a href="#搭建博客">搭建博客</a>
+      <ul>
+        <li><a href="#生成site目录">生成site目录</a></li>
+        <li><a href="#选择主题">选择主题</a></li>
+        <li><a href="#本地测试">本地测试</a></li>
+      </ul>
+    </li>
+    <li><a href="#写一篇博客">写一篇博客</a></li>
+    <li><a href="#部署github">部署github</a>
+      <ul>
+        <li><a href="#创建仓库">创建仓库</a></li>
+        <li><a href="#生成public目录">生成public目录</a></li>
+        <li><a href="#远程访问">远程访问</a></li>
+      </ul>
+    </li>
+    <li><a href="#可能遇到的问题">可能遇到的问题</a>
+      <ul>
+        <li><a href="#错误1">错误1</a></li>
+        <li><a href="#错误2">错误2</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    <h2 id="hugo下载安装">Hugo下载安装</h2>
+<p>由于github中下载的地址比较慢, 微云分享 <a href="https://share.weiyun.com/5Dz5BwH">hugo_0.69.2_Windows-64bit</a>
+下载后解压将 <em>hugo.exe</em> 的目录添加到环境变量
+检查是否安装——》打开powershell——》输入 <code>hugo version</code></p>
+<p><img src="https://img-blog.csdnimg.cn/20200505213104317.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzIwMDE5NTEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="搭建博客">搭建博客</h2>
+<h3 id="生成site目录">生成site目录</h3>
+<p>打开powershell</p>
+<pre><code>hugo new site myblog
+</code></pre><p>此时会生成</p>
+<pre><code>└─myblog
+    ├─archetypes
+    ├─content
+    ├─data
+    ├─layouts
+    ├─static
+    └─themes
+</code></pre><p><em>config.toml</em> 是配置文件，自定义博客标题、地址等</p>
+<h3 id="选择主题">选择主题</h3>
+<p>前往 <a href="https://themes.gohugo.io/">themes.gohugo.io</a> 挑选自己喜欢的主题，下载后放到目录 <strong>themes/</strong> 将主题中的配置文件 <em>config.toml</em> 替换 <strong>myblog</strong> 目录的 <em>config.toml</em>。倘若想省心的话把 <strong>exampleSite</strong> 目录下的全部文件复制到 <strong>myblog</strong> 目录下</p>
+<p><img src="https://img-blog.csdnimg.cn/20200505215516428.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzIwMDE5NTEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="本地测试">本地测试</h3>
+<p><code>hugo sever</code></p>
+<p><img src="https://img-blog.csdnimg.cn/20200505221415643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzIwMDE5NTEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>浏览器输入这个地址进行访问</p>
+<h2 id="写一篇博客">写一篇博客</h2>
+<p><img src="https://img-blog.csdnimg.cn/20200505230304197.png" alt="在这里插入图片描述"></p>
+<p>文章在 <strong>content\blog</strong> 目录下新建一个.md文档进行编写，需学习markdown的写法</p>
+<h2 id="部署github">部署github</h2>
+<h3 id="创建仓库">创建仓库</h3>
+<p><img src="https://img-blog.csdnimg.cn/20200505221815250.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzIwMDE5NTEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>仓库命名按照 <code>&lt;username&gt;.github.io</code>，不然会无法访问（404警告）</p>
+<h3 id="生成public目录">生成public目录</h3>
+<p><code>hugo --baseUrl=&quot;https://username.github.io&quot;</code>
+打开public目录，将public下的文件推送到远程仓库</p>
+<pre><code>git init
+git add .
+git commit -m &quot;first commit&quot;
+git remote add origin &lt;仓库http&gt; 
+git push -u origin master
+</code></pre><h3 id="远程访问">远程访问</h3>
+<p><code>https://username.github.io</code></p>
+<h2 id="可能遇到的问题">可能遇到的问题</h2>
+<h3 id="错误1">错误1</h3>
+<p><img src="https://img-blog.csdnimg.cn/20200505215859794.png" alt="在这里插入图片描述"></p>
+<p>这时只需将配置文件 <strong>config.toml</strong> 这行 <strong>themesdir = &ldquo;../../&quot;</strong> 删掉再 <code>hugo server</code> 即可</p>
+<h3 id="错误2">错误2</h3>
+<p><img src="https://img-blog.csdnimg.cn/20200505221127950.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzIwMDE5NTEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>将这个 <strong>rich-content.md</strong> 文档删掉再 <code>hugo server</code> 即可</p>
+
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://Enriqueliu.github.io/blog/markdown-syntax/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a href="https://Enriqueliu.github.io/blog/blog1/"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+<div class="contact-info">
+    
+        <div class="footer-mail">
+        <i class="far fa-envelope"></i> <a href="mailto:leow@mail2.sysu.edu.cn">leow@mail2.sysu.edu.cn</a> </div>
+    
+    
+    <div class="footer-phone">
+        <i class="fas fa-phone"></i> &#43;86 13534758633 
+    </div>
+    
+</div>
+
+<p class="copyright meta">Copyright @ 2020-2020, Enrique Liu and the Hugo Authors; all rights reserved.</p>
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://Enriqueliu.github.io/js/navbutton.js></script>
+</html>

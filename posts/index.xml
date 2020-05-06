@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Enrique-Blog Space</title>
+    <link>https://Enriqueliu.github.io/posts/</link>
+    <description>Recent content in Posts on Enrique-Blog Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright @ 2020-2020, Enrique Liu and the Hugo Authors; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 11 Apr 2020 18:49:01 +0200</lastBuildDate>
+    
+	<atom:link href="https://Enriqueliu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://Enriqueliu.github.io/posts/post1/</link>
+      <pubDate>Sat, 11 Apr 2020 18:49:01 +0200</pubDate>
+      
+      <guid>https://Enriqueliu.github.io/posts/post1/</guid>
+      <description>welcome to my place</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://Enriqueliu.github.io/posts/post2/</link>
+      <pubDate>Sat, 11 Apr 2020 18:49:01 +0200</pubDate>
+      
+      <guid>https://Enriqueliu.github.io/posts/post2/</guid>
+      <description>this is a micro blog used for short updates and link sharing, you can configure its behavior in config.toml</description>
+    </item>
+    
+  </channel>
+</rss>

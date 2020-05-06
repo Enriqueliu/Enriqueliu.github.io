@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Enrique-Blog Space</title>
+    <link>https://Enriqueliu.github.io/</link>
+    <description>Recent content on Enrique-Blog Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright @ 2020-2020, Enrique Liu and the Hugo Authors; all rights reserved.</copyright>
+    <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://Enriqueliu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>git命令</title>
+      <link>https://Enriqueliu.github.io/blog/blog1/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://Enriqueliu.github.io/blog/blog1/</guid>
+      <description>工作区  一个你存放代码的目录相当于一个工作区  版本库  在你的工作区中创建一个新仓库 git init  将文件添加到暂存区（stage） git add &amp;lt;file&amp;gt; 将所有文件添加到暂存区（stage） git add . 提交到HEAD git commit -m &amp;quot;代码提交信息&amp;quot; 添加远程仓库地址 git remote add origin &amp;lt;url&amp;gt; 提交到远程仓库，master是你要推送的分支 git push origin master 若出现此类错误  ! [rejected] master -&amp;gt; master (fetch first) error: failed to push some refs to &#39;https://github.com/.../.git&#39; hint: Updates were rejected because the remote contains work that you do hint: not have locally. This is usually caused by another repository pushing hint: to the same ref.</description>
+    </item>
+    
+    <item>
+      <title>基于Hugo搭建的个人博客</title>
+      <link>https://Enriqueliu.github.io/blog/blog2/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://Enriqueliu.github.io/blog/blog2/</guid>
+      <description>Hugo下载安装 由于github中下载的地址比较慢, 微云分享 hugo_0.69.2_Windows-64bit 下载后解压将 hugo.exe 的目录添加到环境变量 检查是否安装——》打开powershell——》输入 hugo version
+搭建博客 生成site目录 打开powershell
+hugo new site myblog此时会生成
+└─myblog├─archetypes├─content├─data├─layouts├─static└─themesconfig.toml 是配置文件，自定义博客标题、地址等
+选择主题 前往 themes.gohugo.io 挑选自己喜欢的主题，下载后放到目录 themes/ 将主题中的配置文件 config.toml 替换 myblog 目录的 config.toml。倘若想省心的话把 exampleSite 目录下的全部文件复制到 myblog 目录下
+本地测试 hugo sever
+浏览器输入这个地址进行访问
+写一篇博客 文章在 content\blog 目录下新建一个.md文档进行编写，需学习markdown的写法
+部署github 创建仓库 仓库命名按照 &amp;lt;username&amp;gt;.github.io，不然会无法访问（404警告）
+生成public目录 hugo --baseUrl=&amp;quot;https://username.github.io&amp;quot; 打开public目录，将public下的文件推送到远程仓库
+git initgit add .git commit -m &amp;quot;first commit&amp;quot;git remote add origin &amp;lt;仓库http&amp;gt; git push -u origin master远程访问 https://username.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://Enriqueliu.github.io/posts/post1/</link>
+      <pubDate>Sat, 11 Apr 2020 18:49:01 +0200</pubDate>
+      
+      <guid>https://Enriqueliu.github.io/posts/post1/</guid>
+      <description>welcome to my place</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://Enriqueliu.github.io/posts/post2/</link>
+      <pubDate>Sat, 11 Apr 2020 18:49:01 +0200</pubDate>
+      
+      <guid>https://Enriqueliu.github.io/posts/post2/</guid>
+      <description>this is a micro blog used for short updates and link sharing, you can configure its behavior in config.toml</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://Enriqueliu.github.io/archives/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://Enriqueliu.github.io/archives/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Markdown Syntax Guide</title>
+      <link>https://Enriqueliu.github.io/blog/markdown-syntax/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://Enriqueliu.github.io/blog/markdown-syntax/</guid>
+      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://Enriqueliu.github.io/about/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://Enriqueliu.github.io/about/</guid>
+      <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
+Hugo makes use of a variety of open source projects including:
+ https://github.</description>
+    </item>
+    
+    <item>
+      <title>get in touch</title>
+      <link>https://Enriqueliu.github.io/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Enriqueliu.github.io/contact/</guid>
+      <description>Send</description>
+    </item>
+    
+  </channel>
+</rss>

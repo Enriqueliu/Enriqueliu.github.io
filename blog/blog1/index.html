@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="your description">
+    <meta name="Author" content="Enrique">
+    <meta name="keywords" content="hugo blog">
+    <link rel="stylesheet" href=https://Enriqueliu.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://Enriqueliu.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Enrique-Blog Space</title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+        <a href=https://Enriqueliu.github.io><img src="https://Enriqueliu.github.io/Kaixa1.png" alt="kaixa"></a>
+        
+    
+
+    <a id="branding" href=https://Enriqueliu.github.io>
+        
+            Enrique-Blog Space
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Enriqueliu/Enriqueliu.github.io"
+                
+                    target="_blanck"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+            		
+            <a href="/index.xml"
+                
+            >
+                <i class="fas fa-rss fa-ms"></i>
+                <span>RSS</span>
+            </a>
+        
+            		
+            <a href="/contact"
+                
+            >
+                <i class="far fa-envelope"></i>
+                <span>contact</span>
+            </a>
+        
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">git命令</h1>
+    
+      
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#工作区">工作区</a></li>
+    <li><a href="#版本库">版本库</a></li>
+    <li><a href="#若出现此类错误">若出现此类错误</a>
+      <ul>
+        <li><a href="#解决方案">解决方案</a></li>
+      </ul>
+    </li>
+    <li><a href="#分支">分支</a></li>
+    <li><a href="#其他命令">其他命令</a></li>
+  </ul>
+</nav>
+    <h2 id="工作区">工作区</h2>
+<pre><code>    一个你存放代码的目录相当于一个工作区 
+</code></pre>
+<h2 id="版本库">版本库</h2>
+<pre><code>    在你的工作区中创建一个新仓库
+    git init
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200128155014116.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzIwMDE5NTEx,size_16,color_FFFFFF,t_70" alt="img"></p>
+<pre><code>将文件添加到暂存区（stage）
+git add &lt;file&gt;
+将所有文件添加到暂存区（stage）
+git add .
+</code></pre><p><img src="https://img-blog.csdnimg.cn/20200128155351705.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzIwMDE5NTEx,size_16,color_FFFFFF,t_70" alt="img"></p>
+<pre><code>提交到HEAD
+git commit -m &quot;代码提交信息&quot;
+添加远程仓库地址
+git remote add origin &lt;url&gt;
+提交到远程仓库，master是你要推送的分支
+git push origin master
+</code></pre><h2 id="若出现此类错误">若出现此类错误</h2>
+<pre><code> ! [rejected]        master -&gt; master (fetch first)
+error: failed to push some refs to 'https://github.com/.../.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+ 
+ ! [rejected]        master -&gt; master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/.../.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+</code></pre><h3 id="解决方案">解决方案</h3>
+<pre><code>强制更新推送
+git push --force &lt;url&gt;
+</code></pre><h2 id="分支">分支</h2>
+<p><img src="https://img-blog.csdnimg.cn/2020012823532428.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzIwMDE5NTEx,size_16,color_FFFFFF,t_70" alt="img"></p>
+<pre><code>列出分支
+git branch
+列出分支（本地和远程仓库）
+git branch -a
+建立分支
+git branch &lt;branch&gt;
+切换分支
+git checkout &lt;branch&gt;
+删除分支
+git branch -d &lt;branch&gt; 
+合并分支
+git merge &lt;branch&gt;
+推送分支
+git push origin &lt;branch&gt;
+删除远程分支
+git push origin --delete &lt;branchName&gt;
+</code></pre><h2 id="其他命令">其他命令</h2>
+<pre><code>删除远程仓库文件
+git rm -r --cached &lt;file&gt;
+git commit -m &quot;注释&quot;
+git push origin master
+ 
+添加远程仓库地址
+git remote add origin &lt;url&gt;
+修改远程仓库地址
+git remote set-url origin &lt;url&gt;
+删除远程仓库地址
+git remote rm origin
+</code></pre>
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://Enriqueliu.github.io/blog/blog2/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a class="grayed-out" href="javascript:void()"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+<div class="contact-info">
+    
+        <div class="footer-mail">
+        <i class="far fa-envelope"></i> <a href="mailto:leow@mail2.sysu.edu.cn">leow@mail2.sysu.edu.cn</a> </div>
+    
+    
+    <div class="footer-phone">
+        <i class="fas fa-phone"></i> &#43;86 13534758633 
+    </div>
+    
+</div>
+
+<p class="copyright meta">Copyright @ 2020-2020, Enrique Liu and the Hugo Authors; all rights reserved.</p>
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://Enriqueliu.github.io/js/navbutton.js></script>
+</html>
