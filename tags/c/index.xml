@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C on Enrique-Blog Space</title>
+    <link>https://Enriqueliu.github.io/tags/c/</link>
+    <description>Recent content in C on Enrique-Blog Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright @ 2020-2020, Enrique Liu and the Hugo Authors; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 11 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://Enriqueliu.github.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>排队抓娃娃</title>
+      <link>https://Enriqueliu.github.io/blog/blog3/</link>
+      <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://Enriqueliu.github.io/blog/blog3/</guid>
+      <description>问题描述： 排队抓娃娃，每个人抓到一个娃娃后离开，设每个人抓娃娃所花时间为time，每个人等待的时间为第i~i-1所用时间，第一个人等待的时间为0。如果等待的时间超过抓到娃娃的所用时间，则这个人不开心。
+给定一个序列为每个人抓到娃娃的所用时间，求如何排列，使得不开心人数最少。
+输入第一行n个人，输入第二行每个人所用时间
+input： 4
+1 2 3 5
+output： 1
+参考代码如下： #include &amp;lt;iostream&amp;gt;#include &amp;lt;algorithm&amp;gt;using namespace std;int NoHappy(int num[], int n){int* cost;int* wait;cost = new int[n];wait = new int[n];int count = 1; //统计最大开心人数 sort(num, num+n);for(int i = 0; i &amp;lt; n; i++){if(i == 0){ cost[i] = num[i];wait[i] = 0; }else{wait[i] = wait[i-1] + cost[i-1];for(int j = i; j &amp;lt; n; j++){ if((num[j] - wait[i]) &amp;gt;= 0){cost[i] = num[j];count++;break;}} }} int unhappy = n - count;return unhappy;}int main(){int n, precost;cin &amp;gt;&amp;gt; n;int* cost;cost = new int[n];for(int i = 0; i &amp;lt; n; i++){cin &amp;gt;&amp;gt; cost[i]; }cout &amp;lt;&amp;lt; NoHappy(cost,n);}</description>
+    </item>
+    
+  </channel>
+</rss>

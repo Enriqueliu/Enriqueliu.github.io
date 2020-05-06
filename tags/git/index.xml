@@ -13,15 +13,6 @@
     
     
     <item>
-      <title>git命令</title>
-      <link>https://Enriqueliu.github.io/blog/blog1/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://Enriqueliu.github.io/blog/blog1/</guid>
-      <description>工作区  一个你存放代码的目录相当于一个工作区  版本库  在你的工作区中创建一个新仓库 git init  将文件添加到暂存区（stage） git add &amp;lt;file&amp;gt; 将所有文件添加到暂存区（stage） git add . 提交到HEAD git commit -m &amp;quot;代码提交信息&amp;quot; 添加远程仓库地址 git remote add origin &amp;lt;url&amp;gt; 提交到远程仓库，master是你要推送的分支 git push origin master 若出现此类错误  ! [rejected] master -&amp;gt; master (fetch first) error: failed to push some refs to &#39;https://github.com/.../.git&#39; hint: Updates were rejected because the remote contains work that you do hint: not have locally. This is usually caused by another repository pushing hint: to the same ref.</description>
-    </item>
-    
-    <item>
       <title>基于Hugo搭建的个人博客</title>
       <link>https://Enriqueliu.github.io/blog/blog2/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
@@ -38,6 +29,15 @@ hugo new site myblog此时会生成
 部署github 创建仓库 仓库命名按照 &amp;lt;username&amp;gt;.github.io，不然会无法访问（404警告）
 生成public目录 hugo --baseUrl=&amp;quot;https://username.github.io&amp;quot; 打开public目录，将public下的文件推送到远程仓库
 git initgit add .git commit -m &amp;quot;first commit&amp;quot;git remote add origin &amp;lt;仓库http&amp;gt; git push -u origin master远程访问 https://username.</description>
+    </item>
+    
+    <item>
+      <title>git命令</title>
+      <link>https://Enriqueliu.github.io/blog/blog1/</link>
+      <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://Enriqueliu.github.io/blog/blog1/</guid>
+      <description>工作区  一个你存放代码的目录相当于一个工作区  版本库  在你的工作区中创建一个新仓库 git init  将文件添加到暂存区（stage） git add &amp;lt;file&amp;gt; 将所有文件添加到暂存区（stage） git add . 提交到HEAD git commit -m &amp;quot;代码提交信息&amp;quot; 添加远程仓库地址 git remote add origin &amp;lt;url&amp;gt; 提交到远程仓库，master是你要推送的分支 git push origin master 若出现此类错误  ! [rejected] master -&amp;gt; master (fetch first) error: failed to push some refs to &#39;https://github.com/.../.git&#39; hint: Updates were rejected because the remote contains work that you do hint: not have locally. This is usually caused by another repository pushing hint: to the same ref.</description>
     </item>
     
   </channel>

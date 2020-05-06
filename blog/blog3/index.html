@@ -89,28 +89,90 @@
 <main id="main">
             <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
             <div class="content">
-    <div class="section">
-        <dev class="section-title">tags</dev>
-        
-            <div class="list-item">
-                <a class="entry-title" href="/blog/blog2/">基于Hugo搭建的个人博客</a>
-                
-                
-                <p>搭建博客教程</p>
-                
-                <div class="meta">
-                
-                    <i class="far fa-calendar-alt"></i> May 5 2020
-                
-                <br>
-                
-                        <i class="fas fa-tags"></i> 
-                        Tags: Hugo, git, github
-                
-                </div>
-            </div>
-        
+    
+    <h1 id="title">排队抓娃娃</h1>
+    
+      
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#问题描述">问题描述：</a>
+      <ul>
+        <li><a href="#input">input：</a></li>
+        <li><a href="#output">output：</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考代码如下">参考代码如下：</a></li>
+  </ul>
+</nav>
+    <h2 id="问题描述">问题描述：</h2>
+<p>排队抓娃娃，每个人抓到一个娃娃后离开，设每个人抓娃娃所花时间为time，每个人等待的时间为第i~i-1所用时间，第一个人等待的时间为0。如果等待的时间超过抓到娃娃的所用时间，则这个人不开心。</p>
+<p>给定一个序列为每个人抓到娃娃的所用时间，求如何排列，使得不开心人数最少。</p>
+<p>输入第一行n个人，输入第二行每个人所用时间</p>
+<h3 id="input">input：</h3>
+<p>4</p>
+<p>1 2 3 5</p>
+<h3 id="output">output：</h3>
+<p>1</p>
+<h2 id="参考代码如下">参考代码如下：</h2>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+ 
+int NoHappy(int num[], int n){
+    int* cost;
+    int* wait;
+    cost = new int[n];
+    wait = new int[n];
+ 
+    int count = 1;  //统计最大开心人数    
+    sort(num, num+n);
+    for(int i = 0; i &lt; n; i++){
+        if(i == 0){            
+            cost[i] = num[i];
+            wait[i] = 0;            
+        }else{
+            wait[i] = wait[i-1] + cost[i-1];
+            for(int j = i; j &lt; n; j++){                
+                if((num[j] - wait[i]) &gt;= 0){
+                    cost[i] = num[j];
+                    count++;
+                    break;
+                }
+            }            
+        }
+    }    
+    int unhappy = n - count;
+    return unhappy;
+}
+ 
+int main()
+{
+    int n, precost;
+    cin &gt;&gt; n;
+    int* cost;
+    cost = new int[n];
+    for(int i = 0; i &lt; n; i++){
+        cin &gt;&gt; cost[i];        
+    }
+    cout &lt;&lt; NoHappy(cost,n);
+}
+
+</code></pre>
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://Enriqueliu.github.io/blog/markdown-syntax/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a href="https://Enriqueliu.github.io/blog/blog4/"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
     </div>
+    
 
             </div><footer>
 <div class="footer-content">

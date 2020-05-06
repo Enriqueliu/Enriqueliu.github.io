@@ -13,15 +13,6 @@
     
     
     <item>
-      <title>git命令</title>
-      <link>https://Enriqueliu.github.io/blog/blog1/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://Enriqueliu.github.io/blog/blog1/</guid>
-      <description>工作区  一个你存放代码的目录相当于一个工作区  版本库  在你的工作区中创建一个新仓库 git init  将文件添加到暂存区（stage） git add &amp;lt;file&amp;gt; 将所有文件添加到暂存区（stage） git add . 提交到HEAD git commit -m &amp;quot;代码提交信息&amp;quot; 添加远程仓库地址 git remote add origin &amp;lt;url&amp;gt; 提交到远程仓库，master是你要推送的分支 git push origin master 若出现此类错误  ! [rejected] master -&amp;gt; master (fetch first) error: failed to push some refs to &#39;https://github.com/.../.git&#39; hint: Updates were rejected because the remote contains work that you do hint: not have locally. This is usually caused by another repository pushing hint: to the same ref.</description>
-    </item>
-    
-    <item>
       <title>基于Hugo搭建的个人博客</title>
       <link>https://Enriqueliu.github.io/blog/blog2/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
@@ -38,6 +29,49 @@ hugo new site myblog此时会生成
 部署github 创建仓库 仓库命名按照 &amp;lt;username&amp;gt;.github.io，不然会无法访问（404警告）
 生成public目录 hugo --baseUrl=&amp;quot;https://username.github.io&amp;quot; 打开public目录，将public下的文件推送到远程仓库
 git initgit add .git commit -m &amp;quot;first commit&amp;quot;git remote add origin &amp;lt;仓库http&amp;gt; git push -u origin master远程访问 https://username.</description>
+    </item>
+    
+    <item>
+      <title>git命令</title>
+      <link>https://Enriqueliu.github.io/blog/blog1/</link>
+      <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://Enriqueliu.github.io/blog/blog1/</guid>
+      <description>工作区  一个你存放代码的目录相当于一个工作区  版本库  在你的工作区中创建一个新仓库 git init  将文件添加到暂存区（stage） git add &amp;lt;file&amp;gt; 将所有文件添加到暂存区（stage） git add . 提交到HEAD git commit -m &amp;quot;代码提交信息&amp;quot; 添加远程仓库地址 git remote add origin &amp;lt;url&amp;gt; 提交到远程仓库，master是你要推送的分支 git push origin master 若出现此类错误  ! [rejected] master -&amp;gt; master (fetch first) error: failed to push some refs to &#39;https://github.com/.../.git&#39; hint: Updates were rejected because the remote contains work that you do hint: not have locally. This is usually caused by another repository pushing hint: to the same ref.</description>
+    </item>
+    
+    <item>
+      <title>DBeaver连接MySQL 8以上版本以及解决可能遇到的问题</title>
+      <link>https://Enriqueliu.github.io/blog/blog4/</link>
+      <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://Enriqueliu.github.io/blog/blog4/</guid>
+      <description>前期准备 数据库MySQL版本8.0.18
+下载一个DBeaver.exe
+下载地址：https://dbeaver.io/download/
+DBeaver连接MySQL 点击新建 &amp;ndash;》数据库连接 &amp;ndash;》下一步
+选择数据库 &amp;ndash;》下一步 &amp;ndash;》完成
+双击新建的文件会提示下面这样的错误
+解决方案 原因是数据库的时区配置不对 打开cmd以管理员运行 登录数据库 &amp;ndash;》输入 show variables like &amp;lsquo;%time_zone%&#39;;
+SYSTEM为默认美国时间，解决方法：输入 set global time_zone=&#39;+8:00&amp;rsquo;;
+虽然显示还是SYSTEM，退出数据库重启一遍即可
+然后返回到DBeaver再次双击连接
+红色框表示连接成功</description>
+    </item>
+    
+    <item>
+      <title>排队抓娃娃</title>
+      <link>https://Enriqueliu.github.io/blog/blog3/</link>
+      <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://Enriqueliu.github.io/blog/blog3/</guid>
+      <description>问题描述： 排队抓娃娃，每个人抓到一个娃娃后离开，设每个人抓娃娃所花时间为time，每个人等待的时间为第i~i-1所用时间，第一个人等待的时间为0。如果等待的时间超过抓到娃娃的所用时间，则这个人不开心。
+给定一个序列为每个人抓到娃娃的所用时间，求如何排列，使得不开心人数最少。
+输入第一行n个人，输入第二行每个人所用时间
+input： 4
+1 2 3 5
+output： 1
+参考代码如下： #include &amp;lt;iostream&amp;gt;#include &amp;lt;algorithm&amp;gt;using namespace std;int NoHappy(int num[], int n){int* cost;int* wait;cost = new int[n];wait = new int[n];int count = 1; //统计最大开心人数 sort(num, num+n);for(int i = 0; i &amp;lt; n; i++){if(i == 0){ cost[i] = num[i];wait[i] = 0; }else{wait[i] = wait[i-1] + cost[i-1];for(int j = i; j &amp;lt; n; j++){ if((num[j] - wait[i]) &amp;gt;= 0){cost[i] = num[j];count++;break;}} }} int unhappy = n - count;return unhappy;}int main(){int n, precost;cin &amp;gt;&amp;gt; n;int* cost;cost = new int[n];for(int i = 0; i &amp;lt; n; i++){cin &amp;gt;&amp;gt; cost[i]; }cout &amp;lt;&amp;lt; NoHappy(cost,n);}</description>
     </item>
     
     <item>

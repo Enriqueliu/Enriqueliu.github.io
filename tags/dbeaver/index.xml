@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DBeaver on Enrique-Blog Space</title>
+    <link>https://Enriqueliu.github.io/tags/dbeaver/</link>
+    <description>Recent content in DBeaver on Enrique-Blog Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright @ 2020-2020, Enrique Liu and the Hugo Authors; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 11 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://Enriqueliu.github.io/tags/dbeaver/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DBeaver连接MySQL 8以上版本以及解决可能遇到的问题</title>
+      <link>https://Enriqueliu.github.io/blog/blog4/</link>
+      <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://Enriqueliu.github.io/blog/blog4/</guid>
+      <description>前期准备 数据库MySQL版本8.0.18
+下载一个DBeaver.exe
+下载地址：https://dbeaver.io/download/
+DBeaver连接MySQL 点击新建 &amp;ndash;》数据库连接 &amp;ndash;》下一步
+选择数据库 &amp;ndash;》下一步 &amp;ndash;》完成
+双击新建的文件会提示下面这样的错误
+解决方案 原因是数据库的时区配置不对 打开cmd以管理员运行 登录数据库 &amp;ndash;》输入 show variables like &amp;lsquo;%time_zone%&#39;;
+SYSTEM为默认美国时间，解决方法：输入 set global time_zone=&#39;+8:00&amp;rsquo;;
+虽然显示还是SYSTEM，退出数据库重启一遍即可
+然后返回到DBeaver再次双击连接
+红色框表示连接成功</description>
+    </item>
+    
+  </channel>
+</rss>
