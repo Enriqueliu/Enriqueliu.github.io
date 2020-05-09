@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="your description">
+    <meta name="Author" content="Enrique">
+    <meta name="keywords" content="hugo blog">
+    <link rel="stylesheet" href=https://Enriqueliu.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://Enriqueliu.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Enrique-Blog Space</title>
+  </head>
+  <body><aside id="sidenav">
+    <header>
+    <audio src="../../../bgm/01.mp3"  autoplay="autoplay"> </audio>
+    
+        <a href=https://Enriqueliu.github.io><img src="https://Enriqueliu.github.io/Kaixa1.png" alt="kaixa"></a>
+        
+    
+
+    <a id="branding" href=https://Enriqueliu.github.io>
+        
+            Enrique-Blog Space
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Enriqueliu/Enriqueliu.github.io"
+                
+                    target="_blanck"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+            		
+            <a href="/index.xml"
+                
+            >
+                <i class="fas fa-rss fa-ms"></i>
+                <span>RSS</span>
+            </a>
+        
+            		
+            <a href="/contact"
+                
+            >
+                <i class="far fa-envelope"></i>
+                <span>contact</span>
+            </a>
+        
+            		
+            <a href="/contact"
+                
+            >
+                <i class="fa fa-music"></i>
+                <span>music</span>
+            </a>
+        
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">DataBase System Concept相关语句 (笔记)</h1>
+    
+      
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#表的创建">表的创建</a></li>
+    <li><a href="#样本数据">样本数据</a></li>
+  </ul>
+</nav>
+    <h2 id="表的创建">表的创建</h2>
+<p><img src="https://img-blog.csdnimg.cn/20200509153208903.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzIwMDE5NTEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>create table classroom(
+	building varchar (15),
+	room_number varchar (7),
+	capacity numeric (4,0),
+	primary key(building, room_number));
+
+create table department(
+	dept_name varchar (20),
+	building varchar (15),
+	budget numeric (12,2) check (budget &gt; 0),
+	primary key (dept_name));
+
+create table course(
+	course_id varchar(7),
+	title varchar(50),
+	dept_name varchar(20),
+	credits numeric(2,0) check(credits &gt; 0),
+	primary key (course_id),
+	foreign key (dept_name) references department(dept_name) on delete set null);
+
+create table instructor(
+	ID varchar (5),
+	name varchar (20) not null,
+	dept_name varchar (20),
+	salary numeric (8,2) check (salary &gt; 29000),
+	primary key (ID),
+	foreign key (dept_name) references department(dept_name) on delete set null);
+
+create table section(
+	course_id varchar (8),
+	sec_id varchar (8),
+	semester varchar (6) check (semester in('Fall', 'Winter', 'Spring', 'Summer')),
+	year numeric (4,0) check (year &gt; 1701 and year &lt; 2100),
+	building varchar (15),
+	room_number varchar (7),
+	time_slot_id varchar (4),
+	primary key (course_id,sec_id,semester,year),
+	foreign key (course_id) references course(course_id) on delete cascade,
+	foreign key (building, room_number) references classroom(building, room_number) on delete set null);
+
+create table teaches(
+	ID varchar (5),
+	course_id varchar (8),
+	sec_id varchar (8),
+	semester varchar (6),
+	year numeric (4,0),
+	primary key (ID, course_id, sec_id, semester, year),
+	foreign key (course_id, sec_id, semester, year) references section(course_id, sec_id, semester, year) on delete cascade,
+	foreign key (ID) references instructor(ID) on delete cascade);
+
+
+create table student(
+	ID varchar (5),
+	name varchar (20) not null,
+	dept_name varchar (20),
+	tot_cred numeric (3,0) check (tot_cred &gt;= 0),
+	primary key (ID),
+	foreign key (dept_name) references department(dept_name) on delete set null);
+
+create table takes(
+	ID varchar (5),
+	course_id varchar (8),
+	sec_id varchar (8),
+	semester varchar (6),
+	year numeric (4,0),
+	grade varchar (2),
+	primary key (ID, course_id, sec_id, semester, year),
+	foreign key (course_id, sec_id, semester, year) references section(course_id, sec_id, semester, year) on delete cascade,
+	foreign key (ID) references student(ID) on delete cascade);
+
+create table advisor(
+	s_ID varchar (5),
+	i_ID varchar (5),
+	primary key (s_ID),
+	foreign key (i_ID) references instructor (ID)
+	on delete set null,
+	foreign key (s_ID) references student (ID) on delete cascade);
+
+create table prereq(
+	course_id varchar(8),
+	prereq_id varchar(8),
+	primary key (course_id, prereq_id),
+	foreign key (course_id) references course(course_id) on delete cascade,
+	foreign key (prereq_id) references course(course_id));
+
+create table timeslot(
+	time_slot_id varchar (4),
+	day varchar (1) check (day in ('M', 'T', 'W', 'R', 'F', 'S', 'U')),
+	start_time time,
+	end_time time,
+	primary key (time_slot_id, day, start_time));
+
+create table timeslot(
+	time_slot_id varchar (4),
+	day varchar (1),
+	start_hr numeric (2) check (start_hr &gt;= 0 and start_hr &lt; 24),
+	start_min numeric (2) check (start_min &gt;= 0 and start_min &lt; 60),
+	end_hr numeric (2) check (end_hr &gt;= 0 and end_hr &lt; 24),
+	end_min numeric (2) check (end_min &gt;= 0 and end_min &lt; 60),
+	primary key (time_slot_id, day, start_hr, start_min));
+</code></pre><h2 id="样本数据">样本数据</h2>
+<p><img src="https://img-blog.csdnimg.cn/20200509153828670.png#pic_center" alt="在这里插入图片描述">
+<img src="https://img-blog.csdnimg.cn/20200509154118228.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzIwMDE5NTEx,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述">
+<img src="https://img-blog.csdnimg.cn/20200509153908422.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzIwMDE5NTEx,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述">
+<img src="https://img-blog.csdnimg.cn/20200509154014551.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzIwMDE5NTEx,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述">
+<img src="https://img-blog.csdnimg.cn/20200509154032310.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzIwMDE5NTEx,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<pre><code>insert into classroom values
+(&quot;Packard&quot;,101,500),
+(&quot;Painter&quot;,514,10),
+(&quot;Taylor&quot;,3128,70),
+(&quot;Waston&quot;,100,30),
+(&quot;Watson&quot;,120,50);
+
+insert into department values
+(&quot;Biology&quot;,&quot;Waston&quot;,90000),
+(&quot;Comp. Sci.&quot;,&quot;Taylor&quot;,100000),
+(&quot;Elec. Eng.&quot;,&quot;Taylor&quot;,85000),
+(&quot;Finance&quot;,&quot;Painter&quot;,120000),
+(&quot;History&quot;,&quot;Painter&quot;,50000),
+(&quot;Music&quot;,&quot;Packard&quot;,80000),
+(&quot;Physics&quot;,&quot;Waston&quot;,70000);
+
+insert into course values
+(&quot;BIO-101&quot;,&quot;Intro. to Biology&quot;,&quot;Biology&quot;,4),
+(&quot;BIO-301&quot;,&quot;Genetics&quot;,&quot;Biology&quot;,4),
+(&quot;BIO-399&quot;,&quot;Computational Biology&quot;,&quot;Biology&quot;,4),
+(&quot;CS-101&quot;,&quot;Intro. to Computer Science&quot;,&quot;Comp. Sci.&quot;,4),
+(&quot;CS-190&quot;,&quot;Game Design&quot;,&quot;Comp. Sci.&quot;,4),
+(&quot;CS-315&quot;,&quot;Robotics&quot;,&quot;Comp. Sci.&quot;,3),
+(&quot;CS-319&quot;,&quot;Image Processing&quot;,&quot;Comp. Sci.&quot;,3),
+(&quot;CS-347&quot;,&quot;Database System Concepts&quot;,&quot;Comp. Sci.&quot;,3),
+(&quot;EE-181&quot;,&quot;Intro. to Digital Systems&quot;,&quot;Elec. Eng.&quot;,3),
+(&quot;FIN-201&quot;,&quot;Investment Banking&quot;,&quot;Finance&quot;,3),
+(&quot;HIS-351&quot;,&quot;World History&quot;,&quot;History&quot;,3),
+(&quot;MU-199&quot;,&quot;Music Video Production&quot;,&quot;Music&quot;,3),
+(&quot;PHY-101&quot;,&quot;Physical Principles&quot;,&quot;Physics&quot;,4);
+
+insert into instructor values
+(10101,&quot;Srinivasan&quot;,&quot;Comp. Sci.&quot;,65000),
+(12121,&quot;Wu&quot;,&quot;Finance&quot;,90000),
+(76543,&quot;Singh&quot;,&quot;Finance&quot;,80000),
+(15151,&quot;Mozart&quot;,&quot;Music&quot;,40000),
+(22222,&quot;Einstein&quot;,&quot;Physics&quot;,95000),
+(33456,&quot;Gold&quot;,&quot;Physics&quot;,87000),
+(45565,&quot;Katz&quot;,&quot;Comp. Sci.&quot;,75000),
+(83821,&quot;Brandt&quot;,&quot;Comp. Sci.&quot;,92000),
+(58583,&quot;Califieri&quot;,&quot;History&quot;,62000),
+(32343,&quot;El Said&quot;,&quot;History&quot;,60000),
+(76766,&quot;Crick&quot;,&quot;Biology&quot;,72000),
+(98345,&quot;Kim&quot;,&quot;Elec. Eng.&quot;,80000);
+
+
+insert into section values
+(&quot;BIO-101&quot;,1,&quot;Summer&quot;,2017,&quot;Painter&quot;,514,&quot;B&quot;),
+(&quot;BIO-301&quot;,1,&quot;Summer&quot;,2018,&quot;Painter&quot;,514,&quot;A&quot;),
+(&quot;CS-101&quot;,1,&quot;Fall&quot;,2017,&quot;Packard&quot;,101,&quot;H&quot;),
+(&quot;CS-101&quot;,1,&quot;Spring&quot;,2018,&quot;Packard&quot;,101,&quot;F&quot;),
+(&quot;CS-190&quot;,1,&quot;Spring&quot;,2017,&quot;Taylor&quot;,3128,&quot;E&quot;),
+(&quot;CS-190&quot;,2,&quot;Spring&quot;,2017,&quot;Taylor&quot;,3128,&quot;A&quot;),
+(&quot;CS-315&quot;,1,&quot;Spring&quot;,2018,&quot;Watson&quot;,120,&quot;D&quot;),
+(&quot;CS-319&quot;,1,&quot;Spring&quot;,2018,&quot;Watson&quot;,100,&quot;B&quot;),
+(&quot;CS-319&quot;,2,&quot;Spring&quot;,2018,&quot;Taylor&quot;,3128,&quot;C&quot;),
+(&quot;CS-347&quot;,1,&quot;Fall&quot;,2017,&quot;Taylor&quot;,3128,&quot;A&quot;),
+(&quot;EE-181&quot;,1,&quot;Spring&quot;,2017,&quot;Taylor&quot;,3128,&quot;C&quot;),
+(&quot;FIN-201&quot;,1,&quot;Spring&quot;,2018,&quot;Packard&quot;,101,&quot;B&quot;),
+(&quot;HIS-351&quot;,1,&quot;Spring&quot;,2018,&quot;Painter&quot;,514,&quot;C&quot;),
+(&quot;MU-199&quot;,1,&quot;Spring&quot;,2018,&quot;Packard&quot;,101,&quot;D&quot;),
+(&quot;PHY-101&quot;,1,&quot;Fall&quot;,2017,&quot;Watson&quot;,100,&quot;A&quot;);
+
+insert into teaches values
+(10101,&quot;CS-101&quot;,1,&quot;Fall&quot;,2017),
+(10101,&quot;CS-315&quot;,1,&quot;Spring&quot;,2018),
+(10101,&quot;CS-347&quot;,1,&quot;Fall&quot;,2017),
+(12121,&quot;FIN-201&quot;,1,&quot;Spring&quot;,2018),
+(15151,&quot;MU-199&quot;,1,&quot;Spring&quot;,2018),
+(22222,&quot;PHY-101&quot;,1,&quot;Fall&quot;,2017),
+(32343,&quot;HIS-351&quot;,1,&quot;Spring&quot;,2018),
+(45565,&quot;CS-101&quot;,1,&quot;Spring&quot;,2018),
+(45565,&quot;CS-319&quot;,1,&quot;Spring&quot;,2018),
+(76766,&quot;BIO-101&quot;,1,&quot;Summer&quot;,2017),
+(76766,&quot;BIO-301&quot;,1,&quot;Summer&quot;,2018),
+(83821,&quot;CS-190&quot;,1,&quot;Spring&quot;,2017),
+(83821,&quot;CS-190&quot;,2,&quot;Spring&quot;,2017),
+(83821,&quot;CS-319&quot;,2,&quot;Spring&quot;,2018),
+(98345,&quot;EE-181&quot;,1,&quot;Spring&quot;,2017);
+
+insert into student values
+(00128,&quot;Zhang&quot;,&quot;Comp. Sci.&quot;,102),
+(12345,&quot;Shankar&quot;,&quot;Comp. Sci.&quot;,32),
+(19991,&quot;Brandt&quot;,&quot;History&quot;,80),
+(23121,&quot;Chavez&quot;,&quot;Finance&quot;,110),
+(44553,&quot;Peltier&quot;,&quot;Physics&quot;,56),
+(45678,&quot;Levy&quot;,&quot;Physics&quot;,46),
+(54321,&quot;Williams&quot;,&quot;Comp. Sci.&quot;,54),
+(55739,&quot;Sanchez&quot;,&quot;Music&quot;,38),
+(70557,&quot;Snow&quot;,&quot;Physics&quot;,0),
+(76543,&quot;Brown&quot;,&quot;Comp. Sci.&quot;,58),
+(76653,&quot;Aoi&quot;,&quot;Elec. Eng.&quot;,60),
+(98765,&quot;Bourikas&quot;,&quot;Elec. Eng.&quot;,98),
+(98988,&quot;Tanaka&quot;,&quot;Biology&quot;,120);
+
+insert into takes values
+(00128,&quot;CS-101&quot;,1,&quot;Fall&quot;,2017,&quot;A&quot;),
+(00128,&quot;CS-347&quot;,1,&quot;Fall&quot;,2017,&quot;A-&quot;),
+(12345,&quot;CS-101&quot;,1,&quot;Fall&quot;,2017,&quot;C&quot;),
+(12345,&quot;CS-190&quot;,2,&quot;Spring&quot;,2017,&quot;A&quot;),
+(12345,&quot;CS-315&quot;,1,&quot;Spring&quot;,2018,&quot;A&quot;),
+(12345,&quot;CS-347&quot;,1,&quot;Fall&quot;,2017,&quot;A&quot;),
+(19991,&quot;HIS-351&quot;,1,&quot;Spring&quot;,2018,&quot;B&quot;),
+(23121,&quot;FIN-201&quot;,1,&quot;Spring&quot;,2018,&quot;C+&quot;),
+(44553,&quot;PHY-101&quot;,1,&quot;Fall&quot;,2017,&quot;B-&quot;),
+(45678,&quot;CS-101&quot;,1,&quot;Fall&quot;,2017,&quot;F&quot;),
+(45678,&quot;CS-101&quot;,1,&quot;Spring&quot;,2018,&quot;B+&quot;),
+(45678,&quot;CS-319&quot;,1,&quot;Spring&quot;,2018,&quot;B&quot;),
+(54321,&quot;CS-101&quot;,1,&quot;Fall&quot;,2017,&quot;A-&quot;),
+(54321,&quot;CS-190&quot;,2,&quot;Spring&quot;,2017,&quot;B+&quot;),
+(55739,&quot;MU-199&quot;,1,&quot;Spring&quot;,2018,&quot;A-&quot;),
+(76543,&quot;CS-101&quot;,1,&quot;Fall&quot;,2017,&quot;A&quot;),
+(76543,&quot;CS-319&quot;,2,&quot;Spring&quot;,2018,&quot;A&quot;),
+(76653,&quot;EE-181&quot;,1,&quot;Spring&quot;,2017,&quot;C&quot;),
+(98765,&quot;CS-101&quot;,1,&quot;Fall&quot;,2017,&quot;C-&quot;),
+(98765,&quot;CS-315&quot;,1,&quot;Spring&quot;,2018,&quot;B&quot;),
+(98988,&quot;BIO-101&quot;,1,&quot;Summer&quot;,2017,&quot;A&quot;),
+(98988,&quot;BIO-301&quot;,1,&quot;Summer&quot;,2018,null);
+
+insert into advisor values
+(00128,45565),
+(12345,10101),
+(23121,76543),
+(44553,22222),
+(45678,22222),
+(76543,45565),
+(76653,98345),
+(98765,98345),
+(98988,76766);
+
+insert into time_slot values
+(&quot;A&quot;,&quot;M&quot;,&quot;8:00&quot;,&quot;8:50&quot;),
+(&quot;A&quot;,&quot;W&quot;,&quot;8:00&quot;,&quot;8:50&quot;),
+(&quot;A&quot;,&quot;F&quot;,&quot;8:00&quot;,&quot;8:50&quot;),
+(&quot;B&quot;,&quot;M&quot;,&quot;9:00&quot;,&quot;9:50&quot;),
+(&quot;B&quot;,&quot;W&quot;,&quot;9:00&quot;,&quot;9:50&quot;),
+(&quot;B&quot;,&quot;F&quot;,&quot;9:00&quot;,&quot;9:50&quot;),
+(&quot;C&quot;,&quot;M&quot;,&quot;11:00&quot;,&quot;11:50&quot;),
+(&quot;C&quot;,&quot;W&quot;,&quot;11:00&quot;,&quot;11:50&quot;),
+(&quot;C&quot;,&quot;F&quot;,&quot;11:00&quot;,&quot;11:50&quot;),
+(&quot;D&quot;,&quot;M&quot;,&quot;13:00&quot;,&quot;13:50&quot;),
+(&quot;D&quot;,&quot;W&quot;,&quot;13:00&quot;,&quot;13:50&quot;),
+(&quot;D&quot;,&quot;F&quot;,&quot;13:00&quot;,&quot;13:50&quot;),
+(&quot;E&quot;,&quot;T&quot;,&quot;10:30&quot;,&quot;11:45&quot;),
+(&quot;E&quot;,&quot;R&quot;,&quot;10:30&quot;,&quot;11:45&quot;),
+(&quot;F&quot;,&quot;T&quot;,&quot;14:30&quot;,&quot;15:45&quot;),
+(&quot;F&quot;,&quot;R&quot;,&quot;14:30&quot;,&quot;15:45&quot;),
+(&quot;G&quot;,&quot;M&quot;,&quot;16:00&quot;,&quot;16:50&quot;),
+(&quot;G&quot;,&quot;W&quot;,&quot;16:00&quot;,&quot;16:50&quot;),
+(&quot;G&quot;,&quot;F&quot;,&quot;16:00&quot;,&quot;16:50&quot;),
+(&quot;H&quot;,&quot;W&quot;,&quot;10:00&quot;,&quot;12:30&quot;);
+
+insert into prereq values
+(&quot;BIO-301&quot;,&quot;BIO-101&quot;),
+(&quot;BIO-399&quot;,&quot;BIO-101&quot;),
+(&quot;CS-190&quot;,&quot;CS-101&quot;),
+(&quot;CS-315&quot;,&quot;CS-101&quot;),
+(&quot;CS-319&quot;,&quot;CS-101&quot;),
+(&quot;CS-347&quot;,&quot;CS-101&quot;),
+(&quot;EE-181&quot;,&quot;PHY-101&quot;);
+</code></pre>
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://Enriqueliu.github.io/blog/blog2/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a class="grayed-out" href="javascript:void()"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+<div class="contact-info">
+    
+        <div class="footer-mail">
+        <i class="far fa-envelope"></i> <a href="mailto:leow@mail2.sysu.edu.cn">leow@mail2.sysu.edu.cn</a> </div>
+    
+    
+    <div class="footer-phone">
+        <i class="fas fa-phone"></i> &#43;86 13534758633 
+    </div>
+    
+</div>
+
+<p class="copyright meta">Copyright @ 2020-2020, Enrique Liu and the Hugo Authors; all rights reserved.</p>
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://Enriqueliu.github.io/js/navbutton.js></script>
+</html>
