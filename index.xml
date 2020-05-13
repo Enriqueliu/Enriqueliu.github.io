@@ -13,6 +13,19 @@
     
     
     <item>
+      <title>递归练习--快速排序</title>
+      <link>https://Enriqueliu.github.io/blog/blog6/</link>
+      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://Enriqueliu.github.io/blog/blog6/</guid>
+      <description>一、快速排序简述 划分 快速排序的核心就是划分，假设一个列表 list=[2, 3, 2, 1, 4, 1]，我们以列表第一个数即 list[0] 为基准值进行划分，小于等于基准值的数组成一个列表 low，大于基准值的数组成一个列表 high。则如下所示
+low = [2, 1, 1]high = [3, 4]递归 使用递归解决问题，意思是把问题分解成规模缩小的同类问题的子问题，然后递归调用方法来表示问题的解。使用递归时需要注意如下：
+ 递归基，表示该问题最简单情况的直接解；如这题，最简单的情况为 list 为空或只有一个元素，这种情况都视为有序的。 递归步，表示一般情况下如何求解问题；如这题，一般情况就是子问题，可假设一个 list=[1,4,1] ，基准值是1，划分为 low=[1] 和 high=[4]，然后需要返回一个有序的列表 low + 基准值 + high。 递归调用，即调用自身函数或方法；假设一个 list=[1,4,2,1,0] ，基准值是1，划分为 low=[1,0] 和 high=[4,2]，low和high都是无序的，所以还需要调用自身函数分别对low和high划分。  二、代码结构 划分函数 划分函数 partition(List) ，返回一个元组即 (low,high),
+快速排序函数 快速排序函数 qsort(List)
+伪代码，仅提供思路qsort(List):if len(List) is 0 or 1	//递归基return Listelse:	//递归步base = List[0]tuple = partition(List)low = qsort(tuple[0])	//递归调用high = qsort(tuple[1])	//递归调用return low + base + high</description>
+    </item>
+    
+    <item>
       <title>DataBase System Concept相关语句 (笔记)</title>
       <link>https://Enriqueliu.github.io/blog/blog5/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>

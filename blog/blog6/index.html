@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="your description">
+    <meta name="Author" content="Enrique">
+    <meta name="keywords" content="hugo blog">
+    <link rel="stylesheet" href=https://Enriqueliu.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://Enriqueliu.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>Enrique-Blog Space</title>
+  </head>
+  <body><aside id="sidenav">
+    <header>
+    <audio src="../../../bgm/01.mp3"  autoplay="autoplay"> </audio>
+    
+        <a href=https://Enriqueliu.github.io><img src="https://Enriqueliu.github.io/Kaixa1.png" alt="kaixa"></a>
+        
+    
+
+    <a id="branding" href=https://Enriqueliu.github.io>
+        
+            Enrique-Blog Space
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Enriqueliu/Enriqueliu.github.io"
+                
+                    target="_blanck"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+            		
+            <a href="/index.xml"
+                
+            >
+                <i class="fas fa-rss fa-ms"></i>
+                <span>RSS</span>
+            </a>
+        
+            		
+            <a href="/contact"
+                
+            >
+                <i class="far fa-envelope"></i>
+                <span>contact</span>
+            </a>
+        
+            		
+            <a href="/contact"
+                
+            >
+                <i class="fa fa-music"></i>
+                <span>music</span>
+            </a>
+        
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">递归练习--快速排序</h1>
+    
+      
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一快速排序简述">一、快速排序简述</a>
+      <ul>
+        <li><a href="#划分">划分</a></li>
+        <li><a href="#递归">递归</a></li>
+      </ul>
+    </li>
+    <li><a href="#二代码结构">二、代码结构</a>
+      <ul>
+        <li><a href="#划分函数">划分函数</a></li>
+        <li><a href="#快速排序函数">快速排序函数</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    <h2 id="一快速排序简述">一、快速排序简述</h2>
+<h3 id="划分">划分</h3>
+<p>快速排序的核心就是划分，假设一个列表 <strong>list=[2, 3, 2, 1, 4, 1]</strong>，我们以列表第一个数即 <em><strong>list[0]</strong></em> 为基准值进行划分，小于等于基准值的数组成一个列表 <em><strong>low</strong></em>，大于基准值的数组成一个列表 <em><strong>high</strong></em>。则如下所示</p>
+<pre><code>low = [2, 1, 1]
+high = [3, 4]
+</code></pre><h3 id="递归">递归</h3>
+<p>使用递归解决问题，意思是把问题分解成规模缩小的同类问题的子问题，然后递归调用方法来表示问题的解。使用递归时需要注意如下：</p>
+<ul>
+<li>递归基，表示该问题最简单情况的直接解；如这题，最简单的情况为 <em><strong>list</strong></em> 为空或只有一个元素，这种情况都视为有序的。</li>
+<li>递归步，表示一般情况下如何求解问题；如这题，一般情况就是子问题，可假设一个 <em><strong>list=[1,4,1]</strong></em> ，基准值是<strong>1</strong>，划分为 <strong>low=[1]</strong> 和 <strong>high=[4]</strong>，然后需要返回一个有序的列表 <strong>low + 基准值 + high</strong>。</li>
+<li>递归调用，即调用自身函数或方法；假设一个 <em><strong>list=[1,4,2,1,0]</strong></em> ，基准值是<strong>1</strong>，划分为 <strong>low=[1,0]</strong> 和
+<strong>high=[4,2]</strong>，<strong>low</strong>和<strong>high</strong>都是无序的，所以还需要调用自身函数分别对<strong>low</strong>和<strong>high</strong>划分。</li>
+</ul>
+<h2 id="二代码结构">二、代码结构</h2>
+<h3 id="划分函数">划分函数</h3>
+<p>划分函数 <em><strong>partition(List)</strong></em> ，返回一个元组即 <strong>(low,high)</strong>,</p>
+<h3 id="快速排序函数">快速排序函数</h3>
+<p>快速排序函数 <em><strong>qsort(List)</strong></em></p>
+<pre><code>伪代码，仅提供思路
+qsort(List):
+	if len(List) is 0 or 1		//递归基
+		return List
+	else:						//递归步
+		base = List[0]
+		tuple = partition(List)
+		low = qsort(tuple[0])	//递归调用
+		high = qsort(tuple[1])	//递归调用
+		return low + base + high
+</code></pre>
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://Enriqueliu.github.io/blog/blog5/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a class="grayed-out" href="javascript:void()"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+<div class="contact-info">
+    
+        <div class="footer-mail">
+        <i class="far fa-envelope"></i> <a href="mailto:leow@mail2.sysu.edu.cn">leow@mail2.sysu.edu.cn</a> </div>
+    
+    
+    <div class="footer-phone">
+        <i class="fas fa-phone"></i> &#43;86 13534758633 
+    </div>
+    
+</div>
+
+<p class="copyright meta">Copyright @ 2020-2020, Enrique Liu and the Hugo Authors; all rights reserved.</p>
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://Enriqueliu.github.io/js/navbutton.js></script>
+</html>

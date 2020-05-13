@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://Enriqueliu.github.io/blog/</loc>
+    <lastmod>2020-05-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://Enriqueliu.github.io/tags/</loc>
+    <lastmod>2020-05-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://Enriqueliu.github.io/tags/%E9%80%92%E5%BD%92/</loc>
+    <lastmod>2020-05-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://Enriqueliu.github.io/blog/blog6/</loc>
+    <lastmod>2020-05-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://Enriqueliu.github.io/blog/blog5/</loc>
     <lastmod>2020-05-09T00:00:00+00:00</lastmod>
   </url>
@@ -14,16 +34,6 @@
   
   <url>
     <loc>https://Enriqueliu.github.io/tags/mysql/</loc>
-    <lastmod>2020-05-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://Enriqueliu.github.io/blog/</loc>
-    <lastmod>2020-05-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://Enriqueliu.github.io/tags/</loc>
     <lastmod>2020-05-09T00:00:00+00:00</lastmod>
   </url>
   
