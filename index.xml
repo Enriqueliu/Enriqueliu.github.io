@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Enrique-Blog Space</title>
-    <link>https://Enriqueliu.github.io/</link>
+    <link>https://enrique_liu.gitee.io/</link>
     <description>Recent content on Enrique-Blog Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Copyright @ 2020-2020, Enrique Liu and the Hugo Authors; all rights reserved.</copyright>
     <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://Enriqueliu.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://enrique_liu.gitee.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>递归练习--快速排序</title>
-      <link>https://Enriqueliu.github.io/blog/blog6/</link>
+      <link>https://enrique_liu.gitee.io/blog/blog6/</link>
       <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://Enriqueliu.github.io/blog/blog6/</guid>
+      <guid>https://enrique_liu.gitee.io/blog/blog6/</guid>
       <description>一、快速排序简述 划分 快速排序的核心就是划分，假设一个列表 list=[2, 3, 2, 1, 4, 1]，我们以列表第一个数即 list[0] 为基准值进行划分，小于等于基准值的数组成一个列表 low，大于基准值的数组成一个列表 high。则如下所示
 low = [2, 1, 1]high = [3, 4]递归 使用递归解决问题，意思是把问题分解成规模缩小的同类问题的子问题，然后递归调用方法来表示问题的解。使用递归时需要注意如下：
  递归基，表示该问题最简单情况的直接解；如这题，最简单的情况为 list 为空或只有一个元素，这种情况都视为有序的。 递归步，表示一般情况下如何求解问题；如这题，一般情况就是子问题，可假设一个 list=[1,4,1] ，基准值是1，划分为 low=[1] 和 high=[4]，然后需要返回一个有序的列表 low + 基准值 + high。 递归调用，即调用自身函数或方法；假设一个 list=[1,4,2,1,0] ，基准值是1，划分为 low=[1,0] 和 high=[4,2]，low和high都是无序的，所以还需要调用自身函数分别对low和high划分。  二、代码结构 划分函数 划分函数 partition(List) ，返回一个元组即 (low,high),
@@ -27,19 +27,19 @@ low = [2, 1, 1]high = [3, 4]递归 使用递归解决问题，意思是把问�
     
     <item>
       <title>DataBase System Concept相关语句 (笔记)</title>
-      <link>https://Enriqueliu.github.io/blog/blog5/</link>
+      <link>https://enrique_liu.gitee.io/blog/blog5/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://Enriqueliu.github.io/blog/blog5/</guid>
+      <guid>https://enrique_liu.gitee.io/blog/blog5/</guid>
       <description>表的创建 create table classroom(building varchar (15),room_number varchar (7),capacity numeric (4,0),primary key(building, room_number));create table department(dept_name varchar (20),building varchar (15),budget numeric (12,2) check (budget &amp;gt; 0),primary key (dept_name));create table course(course_id varchar(7),title varchar(50),dept_name varchar(20),credits numeric(2,0) check(credits &amp;gt; 0),primary key (course_id),foreign key (dept_name) references department(dept_name) on delete set null);create table instructor(ID varchar (5),name varchar (20) not null,dept_name varchar (20),salary numeric (8,2) check (salary &amp;gt; 29000),primary key (ID),foreign key (dept_name) references department(dept_name) on delete set null);create table section(course_id varchar (8),sec_id varchar (8),semester varchar (6) check (semester in(&#39;Fall&#39;, &#39;Winter&#39;, &#39;Spring&#39;, &#39;Summer&#39;)),year numeric (4,0) check (year &amp;gt; 1701 and year &amp;lt; 2100),building varchar (15),room_number varchar (7),time_slot_id varchar (4),primary key (course_id,sec_id,semester,year),foreign key (course_id) references course(course_id) on delete cascade,foreign key (building, room_number) references classroom(building, room_number) on delete set null);create table teaches(ID varchar (5),course_id varchar (8),sec_id varchar (8),semester varchar (6),year numeric (4,0),primary key (ID, course_id, sec_id, semester, year),foreign key (course_id, sec_id, semester, year) references section(course_id, sec_id, semester, year) on delete cascade,foreign key (ID) references instructor(ID) on delete cascade);create table student(ID varchar (5),name varchar (20) not null,dept_name varchar (20),tot_cred numeric (3,0) check (tot_cred &amp;gt;= 0),primary key (ID),foreign key (dept_name) references department(dept_name) on delete set null);create table takes(ID varchar (5),course_id varchar (8),sec_id varchar (8),semester varchar (6),year numeric (4,0),grade varchar (2),primary key (ID, course_id, sec_id, semester, year),foreign key (course_id, sec_id, semester, year) references section(course_id, sec_id, semester, year) on delete cascade,foreign key (ID) references student(ID) on delete cascade);create table advisor(s_ID varchar (5),i_ID varchar (5),primary key (s_ID),foreign key (i_ID) references instructor (ID)on delete set null,foreign key (s_ID) references student (ID) on delete cascade);create table prereq(course_id varchar(8),prereq_id varchar(8),primary key (course_id, prereq_id),foreign key (course_id) references course(course_id) on delete cascade,foreign key (prereq_id) references course(course_id));create table timeslot(time_slot_id varchar (4),day varchar (1) check (day in (&#39;M&#39;, &#39;T&#39;, &#39;W&#39;, &#39;R&#39;, &#39;F&#39;, &#39;S&#39;, &#39;U&#39;)),start_time time,end_time time,primary key (time_slot_id, day, start_time));create table timeslot(time_slot_id varchar (4),day varchar (1),start_hr numeric (2) check (start_hr &amp;gt;= 0 and start_hr &amp;lt; 24),start_min numeric (2) check (start_min &amp;gt;= 0 and start_min &amp;lt; 60),end_hr numeric (2) check (end_hr &amp;gt;= 0 and end_hr &amp;lt; 24),end_min numeric (2) check (end_min &amp;gt;= 0 and end_min &amp;lt; 60),primary key (time_slot_id, day, start_hr, start_min));样本数据 insert into classroom values(&amp;quot;Packard&amp;quot;,101,500),(&amp;quot;Painter&amp;quot;,514,10),(&amp;quot;Taylor&amp;quot;,3128,70),(&amp;quot;Waston&amp;quot;,100,30),(&amp;quot;Watson&amp;quot;,120,50);insert into department values(&amp;quot;Biology&amp;quot;,&amp;quot;Waston&amp;quot;,90000),(&amp;quot;Comp.</description>
     </item>
     
     <item>
       <title>基于Hugo搭建的个人博客</title>
-      <link>https://Enriqueliu.github.io/blog/blog2/</link>
+      <link>https://enrique_liu.gitee.io/blog/blog2/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://Enriqueliu.github.io/blog/blog2/</guid>
+      <guid>https://enrique_liu.gitee.io/blog/blog2/</guid>
       <description>Hugo下载安装 由于github中下载的地址比较慢, 微云分享 hugo_0.69.2_Windows-64bit 下载后解压将 hugo.exe 的目录添加到环境变量 检查是否安装——》打开powershell——》输入 hugo version
 搭建博客 生成site目录 打开powershell
 hugo new site myblog此时会生成
@@ -55,37 +55,37 @@ git initgit add .git commit -m &amp;quot;first commit&amp;quot;git remote add
     
     <item>
       <title></title>
-      <link>https://Enriqueliu.github.io/posts/post1/</link>
+      <link>https://enrique_liu.gitee.io/posts/post1/</link>
       <pubDate>Sat, 11 Apr 2020 18:49:01 +0200</pubDate>
       
-      <guid>https://Enriqueliu.github.io/posts/post1/</guid>
+      <guid>https://enrique_liu.gitee.io/posts/post1/</guid>
       <description>welcome to my place</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://Enriqueliu.github.io/posts/post2/</link>
+      <link>https://enrique_liu.gitee.io/posts/post2/</link>
       <pubDate>Sat, 11 Apr 2020 18:49:01 +0200</pubDate>
       
-      <guid>https://Enriqueliu.github.io/posts/post2/</guid>
+      <guid>https://enrique_liu.gitee.io/posts/post2/</guid>
       <description>this is a micro blog used for short updates and link sharing, you can configure its behavior in config.toml</description>
     </item>
     
     <item>
       <title>git命令</title>
-      <link>https://Enriqueliu.github.io/blog/blog1/</link>
+      <link>https://enrique_liu.gitee.io/blog/blog1/</link>
       <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://Enriqueliu.github.io/blog/blog1/</guid>
+      <guid>https://enrique_liu.gitee.io/blog/blog1/</guid>
       <description>工作区  一个你存放代码的目录相当于一个工作区  版本库  在你的工作区中创建一个新仓库 git init  将文件添加到暂存区（stage） git add &amp;lt;file&amp;gt; 将所有文件添加到暂存区（stage） git add . 提交到HEAD git commit -m &amp;quot;代码提交信息&amp;quot; 添加远程仓库地址 git remote add origin &amp;lt;url&amp;gt; 提交到远程仓库，master是你要推送的分支 git push origin master 若出现此类错误  ! [rejected] master -&amp;gt; master (fetch first) error: failed to push some refs to &#39;https://github.com/.../.git&#39; hint: Updates were rejected because the remote contains work that you do hint: not have locally. This is usually caused by another repository pushing hint: to the same ref.</description>
     </item>
     
     <item>
       <title>DBeaver连接MySQL 8以上版本以及解决可能遇到的问题</title>
-      <link>https://Enriqueliu.github.io/blog/blog4/</link>
+      <link>https://enrique_liu.gitee.io/blog/blog4/</link>
       <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://Enriqueliu.github.io/blog/blog4/</guid>
+      <guid>https://enrique_liu.gitee.io/blog/blog4/</guid>
       <description>前期准备 数据库MySQL版本8.0.18
 下载一个DBeaver.exe
 下载地址：https://dbeaver.io/download/
@@ -101,10 +101,10 @@ SYSTEM为默认美国时间，解决方法：输入 set global time_zone=&#39;+8
     
     <item>
       <title>排队抓娃娃</title>
-      <link>https://Enriqueliu.github.io/blog/blog3/</link>
+      <link>https://enrique_liu.gitee.io/blog/blog3/</link>
       <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://Enriqueliu.github.io/blog/blog3/</guid>
+      <guid>https://enrique_liu.gitee.io/blog/blog3/</guid>
       <description>问题描述： 排队抓娃娃，每个人抓到一个娃娃后离开，设每个人抓娃娃所花时间为time，每个人等待的时间为第i~i-1所用时间，第一个人等待的时间为0。如果等待的时间超过抓到娃娃的所用时间，则这个人不开心。
 给定一个序列为每个人抓到娃娃的所用时间，求如何排列，使得不开心人数最少。
 输入第一行n个人，输入第二行每个人所用时间
@@ -116,28 +116,28 @@ output： 1
     
     <item>
       <title></title>
-      <link>https://Enriqueliu.github.io/archives/</link>
+      <link>https://enrique_liu.gitee.io/archives/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://Enriqueliu.github.io/archives/</guid>
+      <guid>https://enrique_liu.gitee.io/archives/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Markdown Syntax Guide</title>
-      <link>https://Enriqueliu.github.io/blog/markdown-syntax/</link>
+      <link>https://enrique_liu.gitee.io/blog/markdown-syntax/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://Enriqueliu.github.io/blog/markdown-syntax/</guid>
+      <guid>https://enrique_liu.gitee.io/blog/markdown-syntax/</guid>
       <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://Enriqueliu.github.io/about/</link>
+      <link>https://enrique_liu.gitee.io/about/</link>
       <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://Enriqueliu.github.io/about/</guid>
+      <guid>https://enrique_liu.gitee.io/about/</guid>
       <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
 Hugo makes use of a variety of open source projects including:
  https://github.</description>
@@ -145,10 +145,10 @@ Hugo makes use of a variety of open source projects including:
     
     <item>
       <title>get in touch</title>
-      <link>https://Enriqueliu.github.io/contact/</link>
+      <link>https://enrique_liu.gitee.io/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://Enriqueliu.github.io/contact/</guid>
+      <guid>https://enrique_liu.gitee.io/contact/</guid>
       <description>Send</description>
     </item>
     

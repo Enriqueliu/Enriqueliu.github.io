@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>index on Enrique-Blog Space</title>
-    <link>https://Enriqueliu.github.io/tags/index/</link>
+    <link>https://enrique_liu.gitee.io/tags/index/</link>
     <description>Recent content in index on Enrique-Blog Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Copyright @ 2020-2020, Enrique Liu and the Hugo Authors; all rights reserved.</copyright>
     
-	<atom:link href="https://Enriqueliu.github.io/tags/index/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://enrique_liu.gitee.io/tags/index/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Posts</title>
-      <link>https://Enriqueliu.github.io/blog/</link>
+      <link>https://enrique_liu.gitee.io/blog/</link>
       <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://Enriqueliu.github.io/blog/</guid>
+      <guid>https://enrique_liu.gitee.io/blog/</guid>
       <description></description>
     </item>
     

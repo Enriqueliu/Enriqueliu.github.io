@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on Enrique-Blog Space</title>
-    <link>https://Enriqueliu.github.io/tags/hugo/</link>
+    <link>https://enrique_liu.gitee.io/tags/hugo/</link>
     <description>Recent content in Hugo on Enrique-Blog Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Copyright @ 2020-2020, Enrique Liu and the Hugo Authors; all rights reserved.</copyright>
     <lastBuildDate>Tue, 05 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://Enriqueliu.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://enrique_liu.gitee.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>基于Hugo搭建的个人博客</title>
-      <link>https://Enriqueliu.github.io/blog/blog2/</link>
+      <link>https://enrique_liu.gitee.io/blog/blog2/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://Enriqueliu.github.io/blog/blog2/</guid>
+      <guid>https://enrique_liu.gitee.io/blog/blog2/</guid>
       <description>Hugo下载安装 由于github中下载的地址比较慢, 微云分享 hugo_0.69.2_Windows-64bit 下载后解压将 hugo.exe 的目录添加到环境变量 检查是否安装——》打开powershell——》输入 hugo version
 搭建博客 生成site目录 打开powershell
 hugo new site myblog此时会生成

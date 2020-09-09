@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C on Enrique-Blog Space</title>
-    <link>https://Enriqueliu.github.io/tags/c/</link>
+    <link>https://enrique_liu.gitee.io/tags/c/</link>
     <description>Recent content in C on Enrique-Blog Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Copyright @ 2020-2020, Enrique Liu and the Hugo Authors; all rights reserved.</copyright>
     <lastBuildDate>Sat, 11 Jan 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://Enriqueliu.github.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://enrique_liu.gitee.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>排队抓娃娃</title>
-      <link>https://Enriqueliu.github.io/blog/blog3/</link>
+      <link>https://enrique_liu.gitee.io/blog/blog3/</link>
       <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://Enriqueliu.github.io/blog/blog3/</guid>
+      <guid>https://enrique_liu.gitee.io/blog/blog3/</guid>
       <description>问题描述： 排队抓娃娃，每个人抓到一个娃娃后离开，设每个人抓娃娃所花时间为time，每个人等待的时间为第i~i-1所用时间，第一个人等待的时间为0。如果等待的时间超过抓到娃娃的所用时间，则这个人不开心。
 给定一个序列为每个人抓到娃娃的所用时间，求如何排列，使得不开心人数最少。
 输入第一行n个人，输入第二行每个人所用时间

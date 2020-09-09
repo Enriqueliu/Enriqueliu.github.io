@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>git on Enrique-Blog Space</title>
-    <link>https://Enriqueliu.github.io/tags/git/</link>
+    <link>https://enrique_liu.gitee.io/tags/git/</link>
     <description>Recent content in git on Enrique-Blog Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Copyright @ 2020-2020, Enrique Liu and the Hugo Authors; all rights reserved.</copyright>
     <lastBuildDate>Tue, 05 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://Enriqueliu.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://enrique_liu.gitee.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>基于Hugo搭建的个人博客</title>
-      <link>https://Enriqueliu.github.io/blog/blog2/</link>
+      <link>https://enrique_liu.gitee.io/blog/blog2/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://Enriqueliu.github.io/blog/blog2/</guid>
+      <guid>https://enrique_liu.gitee.io/blog/blog2/</guid>
       <description>Hugo下载安装 由于github中下载的地址比较慢, 微云分享 hugo_0.69.2_Windows-64bit 下载后解压将 hugo.exe 的目录添加到环境变量 检查是否安装——》打开powershell——》输入 hugo version
 搭建博客 生成site目录 打开powershell
 hugo new site myblog此时会生成
@@ -33,10 +33,10 @@ git initgit add .git commit -m &amp;quot;first commit&amp;quot;git remote add
     
     <item>
       <title>git命令</title>
-      <link>https://Enriqueliu.github.io/blog/blog1/</link>
+      <link>https://enrique_liu.gitee.io/blog/blog1/</link>
       <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://Enriqueliu.github.io/blog/blog1/</guid>
+      <guid>https://enrique_liu.gitee.io/blog/blog1/</guid>
       <description>工作区  一个你存放代码的目录相当于一个工作区  版本库  在你的工作区中创建一个新仓库 git init  将文件添加到暂存区（stage） git add &amp;lt;file&amp;gt; 将所有文件添加到暂存区（stage） git add . 提交到HEAD git commit -m &amp;quot;代码提交信息&amp;quot; 添加远程仓库地址 git remote add origin &amp;lt;url&amp;gt; 提交到远程仓库，master是你要推送的分支 git push origin master 若出现此类错误  ! [rejected] master -&amp;gt; master (fetch first) error: failed to push some refs to &#39;https://github.com/.../.git&#39; hint: Updates were rejected because the remote contains work that you do hint: not have locally. This is usually caused by another repository pushing hint: to the same ref.</description>
     </item>
     
